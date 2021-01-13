@@ -1,7 +1,6 @@
 import React, {useState, useRef} from 'react';
 import "./Accordion.css";
 import Chevron from "./Chevron";
-import Test from "./Test";
 
 function Accordion(props) {
     const [setActive, setActiveState ] = useState("");
@@ -20,9 +19,8 @@ function Accordion(props) {
     return(
         // accordian__section 
         <div className="accordion__section">
-            <div style={{ height: "0px", width: "100vw", border: "0.5px solid black" }} />
             <button className={`accordion ${setActive}`} onClick={toggleAccordian}>
-                <p className="accordion__title">Test</p>
+                <p className="accordion__title">{props.title}</p>
                 <Chevron className={`${setRotate}`} width={10} fill={"#777"} />
             </button>
             <div ref={content} style={{ maxHeight: `${setHeight}` }} className="accordion__content">
@@ -30,7 +28,7 @@ function Accordion(props) {
                     className="accordion__text"
                     dangerouslySetInnerHTML={{__html: props.content}}
                 /> */}
-                <Test/>
+                {props.content}
             </div>
             <div style={{ height: "0px", width: "100vw", border: "0.5px solid black" }} />
         </div>
